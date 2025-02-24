@@ -297,7 +297,7 @@ const ShowTask = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/tasks');
+        const response = await axios.get('https://task-manager-application-server-kappa.vercel.app/tasks');
         setTasks(response.data);
         setLoading(false);
       } catch (error) {
@@ -310,7 +310,7 @@ const ShowTask = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.put(`http://localhost:5000/tasks/${currentTask._id}`, currentTask);
+      const response = await axios.put(`https://task-manager-application-server-kappa.vercel.app/tasks/${currentTask._id}`, currentTask);
       setTasks(tasks.map(task => (task._id === currentTask._id ? currentTask : task)));
       setIsEditing(false);
     } catch (error) {
@@ -320,7 +320,7 @@ const ShowTask = () => {
 
   const handleDelete = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:5000/tasks/${taskId}`);
+      await axios.delete(`https://task-manager-application-server-kappa.vercel.app/tasks/${taskId}`);
       setTasks(tasks.filter(task => task._id !== taskId));
     } catch (error) {
       console.error("Error deleting task:", error);

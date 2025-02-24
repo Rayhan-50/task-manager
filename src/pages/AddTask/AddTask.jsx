@@ -26,7 +26,7 @@ const AddTask = () => {
 
     try {
       // Make a POST request to your backend API
-      const response = await axios.post('http://localhost:5000/tasks', task);
+      const response = await axios.post('https://task-manager-application-server-kappa.vercel.app/tasks', task);
       
       // On success, clear the form and show success message
       setSuccess('Task added successfully!');
