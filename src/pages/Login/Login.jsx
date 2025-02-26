@@ -64,7 +64,7 @@ const Login = () => {
         <div className="hero min-h-screen card bg-base-100 shadow-2xl card-body flex flex-col items-center">
 
     
-        {/* Main Login Section */}
+        
         <div className="hero-content flex-col md:flex-row-reverse w-full max-w-4xl">
             <div className="text-center md:w-1/2 lg:text-left">
                 <Lottie animationData={registerLottieData} />

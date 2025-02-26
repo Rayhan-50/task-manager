@@ -1,17 +1,15 @@
-
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const AddTask = () => {
   const [task, setTask] = useState({
-    title: '',
-    description: '',
-    category: 'To-Do',
+    title: "",
+    description: "",
+    category: "To-Do",
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTask((prevTask) => ({
@@ -20,21 +18,20 @@ const AddTask = () => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Make a POST request to your backend API
-      const response = await axios.post('https://task-manager-application-server-kappa.vercel.app/tasks', task);
-      
-      // On success, clear the form and show success message
-      setSuccess('Task added successfully!');
+      const response = await axios.post(
+        "https://task-manager-application-server-kappa.vercel.app/tasks",
+        task
+      );
+
+      setSuccess("Task added successfully!");
       setError(null);
-      setTask({ title: '', description: '', category: 'To-Do' }); // Reset the form
+      setTask({ title: "", description: "", category: "To-Do" });
     } catch (error) {
-      // If there's an error, show the error message
-      setError(error.response?.data?.message || 'Failed to add task');
+      setError(error.response?.data?.message || "Failed to add task");
       setSuccess(null);
     }
   };
